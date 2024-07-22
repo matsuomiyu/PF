@@ -38,4 +38,4 @@
 <!-- なお今後、実在するデータを利用する際には、事前に著作権保持者と契約を結んだ上で利用します。 -->
 
 ## 実装機能のリスト
-- https://docs.google.com/spreadsheets/d/1Zirj2Ba41-8EsI5u5Ct_RZaiDmVjBscrDZ-pnLAujQQ/edit?usp=drive_link
+- https://docs.google.com/spreadsheets/d/1mxQsembOxhw-YGVDx9RVJXA3lCNtsEIb9Lqq-lG7iUA/edit?usp=drive_link
