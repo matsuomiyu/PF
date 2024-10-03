@@ -1,0 +1,25 @@
+<div class="col-sm-12 col-lg-5 px-5 px-sm-0 mx-auto">
+  <h1>編集画面</h1>
+  <% if @post.errors.any? %>
+    <h3><%= @post.errors.count %>error prohibited this obj form being saved:</h3>
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= form_with model: @post, url: post_path(@post.id), method: :patch do |f| %>
+    <h4>画像</h4>
+    <%= f.file_field :image, accept: "image/*" %>
+    <h4>タイトル</h4>
+    <%= f.text_field :title %>
+    <h4>本文</h4>
+    <%= f.text_area :body %>
+    <h4></h4>
+    <%= f.submit '更新', class: "btn btn-success" %>
+  <% end %>
+
+  <a class><%= link_to "詳細画面", post_path(@post.id) %></a>
+  <a class>|</a>
+  <a class><%= link_to "戻る", posts_path %></a>
+</div>

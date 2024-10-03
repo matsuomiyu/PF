@@ -1,0 +1,21 @@
+<div class="main-visual <%= 'main-visual--signed-in' if user_signed_in? %>">
+  <div class="container main-visual__container">
+    <div class="main-visual__logo">
+      <%= image_tag '522316442926841908.jpg' %>  
+    </div>
+    <p class="main-visual__text">
+      頑張るあなたの仲間が集う場所。
+    </p>
+
+    <% if !user_signed_in? %>
+      <div class="main-visual__links">
+        <%= link_to '新規登録', new_user_registration_path, class: 'main-visual__link main-visual__link--sign-up' %>
+        <%= link_to 'ログイン', new_user_session_path, class: 'main-visual__link main-visual__link--log-in' %>
+        <p class="main-visual__text">
+        ----- お試しの方はこちら -----
+        </p>
+        <%= link_to 'ゲストログイン', guest_login_path %>
+      </div>
+    <% end %>
+  </div>
+</div>
