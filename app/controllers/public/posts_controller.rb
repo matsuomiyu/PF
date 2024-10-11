@@ -45,6 +45,7 @@ class Public::PostsController < ApplicationController
   end
 
   # 投稿データのストロングパラメータ
+  
   private
   
   def correct_user
