@@ -46,6 +46,13 @@ class Public::PostsController < ApplicationController
 
   # 投稿データのストロングパラメータ
   private
+  
+  def correct_user
+    @post = Post.find(params[:id])
+    unless @post.user == current_user
+      redirect_to posts_path, notice: "他のユーザーの投稿は編集できません"
+    end
+  end
 
   def post_params
     params.require(:post).permit(:image, :title, :body)
