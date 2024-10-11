@@ -1,5 +1,6 @@
 class Public::UsersController < ApplicationController
-  before_action :correct_user, only: [:mypage,:edit, :update]
+  before_action :correct_user, only: [:mypage, :edit, :update]
+  
   def mypage
     @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page])
