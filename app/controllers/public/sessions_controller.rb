@@ -28,7 +28,7 @@ class Public::SessionsController < Devise::SessionsController
 
   protected
   
-  # ログアウト後にaboutページへリダイレクト
+  # ログアウト後のページ
   def after_sign_out_path_for(resource)
     about_path
   end
