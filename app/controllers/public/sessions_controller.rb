@@ -28,9 +28,9 @@ class Public::SessionsController < Devise::SessionsController
 
   protected
   
-  # ログアウト後にトップページへリダイレクト
+  # ログアウト後にaboutページへリダイレクト
   def after_sign_out_path_for(resource)
-    root_path
+    about_path
   end
 
   # 会員ログイン時の削除フラグ判定
