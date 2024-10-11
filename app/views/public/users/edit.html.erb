@@ -6,3 +6,6 @@
   <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
   <%= f.submit "変更を保存" %>
 <% end %>
+<div>
+   <p><%= link_to "退会", user_path(current_user.id) %></p>
+</div>
