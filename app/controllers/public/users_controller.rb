@@ -1,4 +1,5 @@
 class Public::UsersController < ApplicationController
+  before_action :correct_user, only: [:mypage,:edit, :update]
   def mypage
     @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page])
@@ -29,6 +30,13 @@ class Public::UsersController < ApplicationController
   end
   
   private
+  
+  def correct_user
+    @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to mypage_path(current_user), notice: "他のユーザーの編集はできません"
+    end
+  end
 
   def user_params
     params.require(:user).permit(:name, :profile_image)
