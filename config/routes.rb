@@ -10,7 +10,6 @@ devise_for :users, skip: [:passwords], controllers: {
   sessions: 'public/sessions'
 }
 
-
 # 管理者用
 # URL /admin/sign_in ...
 devise_for :admin, skip: [:registrations, :passwords], controllers: {
