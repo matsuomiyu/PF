@@ -21,4 +21,13 @@ class User < ApplicationRecord
     update(guest: true)
   end
   
+  #検索
+  def self.search(keyword, exact_match = true)
+    if exact_match
+      where(name: keyword)
+    else
+      where("name LIKE ?", "%#{keyword}%")
+    end
+  end
+  
 end

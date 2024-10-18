@@ -34,6 +34,10 @@ class Public::PostsController < ApplicationController
 
   def index
     @posts = Post.includes(:user).page(params[:page])
+    #検索機能追加
+    if params[:search].present?
+      @posts = @posts.where("title LIKE ? OR body LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
+    end
   end
 
   def show

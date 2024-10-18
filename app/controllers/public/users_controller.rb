@@ -12,7 +12,15 @@ class Public::UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
+  
+  def index
+    @users = User.all
+    if params[:search].present?
+      @users = @users.where("name LIKE ?", "%#{params[:search]}%")
+    end
+  end
 
+  #更新
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
@@ -22,6 +30,7 @@ class Public::UsersController < ApplicationController
     end
   end
   
+  #退会処理
   def leave
     user = current_user
     user.update(deleted_flag: true) # 論理削除
@@ -32,11 +41,12 @@ class Public::UsersController < ApplicationController
   
   private
   
+  #他のユーザーがedit,showにアクセス制限
   def correct_user
-    @user = User.find(params[:id])
-    unless @user == current_user
-      redirect_to mypage_path(current_user), notice: "他のユーザーの編集はできません"
-    end
+   @user = User.find(params[:id])
+   if (action_name == 'edit' || action_name == 'show') && @user != current_user
+     redirect_to mypage_path(current_user), notice: "他のユーザーの編集はできません"
+   end
   end
 
   def user_params

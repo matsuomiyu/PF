@@ -16,4 +16,12 @@ class Post < ApplicationRecord
      image
    end
  end
+ 
+ def self.search(keyword, exact_match = true)
+    if exact_match
+      where("title = ? OR content = ?", keyword, keyword)
+    else
+      where("title LIKE ? OR content LIKE ?", "%#{keyword}%", "%#{keyword}%")
+    end
+ end
 end

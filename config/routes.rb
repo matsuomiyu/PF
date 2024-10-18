@@ -26,6 +26,7 @@ scope module: :public do
   get '/users/mypage/:id', to: 'users#mypage', as: 'mypage'
   get 'users/:id' => 'users#show', as: 'user'
   get 'users/:id/edit' => 'users#edit', as: 'edit_user'
+  get '/users', to: 'users#index', as: 'users'
   patch 'users/:id', to: 'users#update'
   get '/guest_login', to: 'sessions#guest_login'
   get 'homes/about' => 'homes#about', as: 'about'

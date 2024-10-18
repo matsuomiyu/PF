@@ -1,8 +1,13 @@
+<%= form_tag(posts_path, method: :get) do %>
+  <%= text_field_tag :search, params[:search], placeholder: "キーワードを入力してください" %>
+  <%= submit_tag "検索" %>
+<% end %>
+
 <% @posts.each do |post| %>
   <div>
     <%= link_to post_path(post.id) do %>
-     <%= image_tag post.get_image %>
-   <% end %>
+      <%= image_tag post.get_image %>
+    <% end %>
     <p>投稿ユーザー画像：<%= image_tag post.user.get_profile_image(100,100) %></p>
     <p>タイトル：<%= post.title %></p>
     <p>説明：<%= post.body %></p>
