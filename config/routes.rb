@@ -19,7 +19,7 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
 scope module: :public do
   resources :relationships, only: [:followers, :followings]
   resources :posts, only: [:new, :index, :show, :edit, :create, :destroy, :update] do
-    resources :comments, only: [:new, :index, :show, :edit, :create]
+    resources :comments, only: [:new, :index, :show, :edit, :create, :destroy]
   end
   resources :messages, only: [:new, :index, :show, :edit]
   resources :keywords, only: [:search]
