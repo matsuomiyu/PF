@@ -16,6 +16,11 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
   sessions: "admin/sessions"
 }
 
+ namespace :admin do
+    get 'dashboards', to: 'dashboards#index'
+    resources :users, only: [:destroy]
+ end
+
 scope module: :public do
   resources :relationships, only: [:followers, :followings]
   resources :posts, only: [:new, :index, :show, :edit, :create, :destroy, :update] do
