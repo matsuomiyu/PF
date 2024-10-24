@@ -1,0 +1,17 @@
+<!-- 管理者用ユーザーの詳細 -->
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 text-center">
+      <h3><%= @user.name %></h3>
+      <%= image_tag @user.get_profile_image(100, 100), class: "rounded-circle mb-3" %>
+      <div>
+        <p>Email: <%= @user.email %></p>
+        <p>作成日時: <%= @user.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
+        <div class="mt-3">
+          <%= link_to "退会", admin_user_path(@user), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
+          <%= link_to "戻る", admin_dashboards_path, class: "btn btn-secondary" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,21 +1,28 @@
 <div class="main-visual <%= 'main-visual--signed-in' if user_signed_in? %>">
-  <div class="container main-visual__container">
-    <div class="main-visual__logo">
-      <%= image_tag "522316442926841908.jpg" %>  
-    </div>
-    <p class="main-visual__text">
-      頑張るあなたの仲間が集う場所。
-    </p>
-
-    <% if !user_signed_in? %>
-      <div class="main-visual__links">
-        <%= link_to '新規登録', new_user_registration_path, class: 'main-visual__link main-visual__link--sign-up' %>
-        <%= link_to 'ログイン', new_user_session_path, class: 'main-visual__link main-visual__link--log-in' %>
-        <p class="main-visual__text">
-        ----- お試しの方はこちら -----
-        </p>
-        <%= link_to 'ゲストログイン', guest_login_path %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="main-visual__logo">
+          <%= image_tag "522316442926841908.jpg", class: "img-fluid", alt: "Main Visual Image" %>
+        </div>
       </div>
-    <% end %>
+      <div class="col-md-6">
+        <div class="main-visual__content"　style="padding-top: 20px;">
+          <h1 class="main-visual__title mt-4">
+            ダイエットを成功に導く、<br>
+            安心できるコミュニティ
+          </h1>
+          <p class="main-visual__description">自分らしく、健康的にダイエットを続けられる場所です。</p>
+          <% unless user_signed_in? %>
+            <div class="main-visual__links">
+              <%= link_to '新規登録', new_user_registration_path, class: 'btn btn-primary' %>
+              <%= link_to 'ログイン', new_user_session_path, class: 'btn btn-secondary' %>
+              <p class="main-visual__text">----- お試しの方はこちら -----</p>
+              <%= link_to 'ゲストログイン', guest_login_path, class: 'btn btn-success' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -3,15 +3,28 @@
   <%= submit_tag "検索" %>
 <% end %>
 
-<% @posts.each do |post| %>
-  <div>
-    <%= link_to post_path(post.id) do %>
-      <%= image_tag post.get_image %>
-    <% end %>
-    <p>投稿ユーザー画像：<%= image_tag post.user.get_profile_image(100,100) %></p>
-    <p>タイトル：<%= post.title %></p>
-    <p>説明：<%= post.body %></p>
-    <p>ユーザーネーム：<%= post.user.name %></p>
-    <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
-  </div>
-<% end %>
+<div class="card-list-container py-5">
+  <% @posts.each do |post| %>
+    <div class="card col-12 col-md-6 mx-auto mt-4 shadow-lg">
+      <%= link_to post_path(post.id) do %>
+        <%= image_tag post.get_image, class: "card-img-top img-fluid", style: "max-width: 100%; max-height: 200px; object-fit: cover;" %>
+      <% end %>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-3 col-md-2 text-center mb-3 mb-md-0">
+            <%= image_tag post.user.get_profile_image(100, 100), class: "rounded-circle img-fluid", style: "max-width: 60px; max-height: 60px;" %>
+          </div>
+          <div class="col-9 col-md-10">
+            <p class="card-title">
+              <%= link_to post_path(post.id), class: "text-dark" do %>
+                <strong><i class="far fa-flag"></i><span> <%= post.title %></span></strong>
+              <% end %>
+            </p>
+            <p class="card-text">説明：<%= post.body %></p>
+            <p><i class="fas fa-user"></i> By <%= post.user.name %> ｜ <%= link_to "#{post.comments.count} コメント", post_path(post.id), class: "text-dark" %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -18,6 +18,7 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
 
  namespace :admin do
     get 'dashboards', to: 'dashboards#index'
+    get 'dashboards/:id', to: 'dashboards#show', as: 'dashboard'
     resources :users, only: [:destroy]
  end
 

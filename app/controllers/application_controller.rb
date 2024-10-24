@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
       authenticate_user! unless action_is_public?
     end
   end
-   
+  
   def admin_controller?
     self.class.module_parent_name == 'Admin'
   end

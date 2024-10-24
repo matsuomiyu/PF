@@ -1,25 +1,34 @@
-<div class="col-sm-12 col-lg-5 px-5 px-sm-0 mx-auto">
-  <h1>-編集画面-</h1>
-  <% if @post.errors.any? %>
-    <h3><%= @post.errors.count %>error prohibited this obj form being saved:</h3>
-    <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
-  <%= form_with model: @post, url: post_path(@post.id), method: :patch do |f| %>
-    <h4>画像</h4>
-    <%= f.file_field :image, accept: "image/*" %>
-    <h4>タイトル</h4>
-    <%= f.text_field :title %>
-    <h4>本文</h4>
-    <%= f.text_area :body %>
-    <h4></h4>
-    <%= f.submit '更新', class: "btn btn-success" %>
-  <% end %>
-
-  <a class><%= link_to "詳細画面", post_path(@post.id) %></a>
-  <a class>|</a>
-  <a class><%= link_to "戻る", posts_path %></a>
+<div class="container">
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
+      <h5 class="text-dark bg-light p-4 mb-0">編集画面</h5>
+      <div class="form-body p-4">
+        <% if @post.errors.any? %>
+          <ul class="alert alert-danger" role="alert">
+            <h6 class="alert-heading">
+              <%= @post.errors.count %>error prohibited this obj form being saved:
+            </h6>
+            <% @post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+        <%= form_with model: @post, url: post_path(@post.id), method: :patch do |f| %>
+          <%= f.file_field :image, accept: "image/*", class: "w-100" %>
+          <div class="input-group mb-3 mt-4">
+            <div class="input-group-prepend">
+              <span class="input-group-text" aria-hidden="true"><i class="fas fa-building"></i></span>
+            </div>
+            <%= f.text_field :title, class: "form-control", placeholder: "タイトル" %>
+          </div>
+          <%= f.text_area :body, class: "form-control", rows: "3", placeholder: "詳細" %>
+          <hr>
+          <%= f.submit '更新', class: "btn btn-lg btn-block btn-info mt-4" %>
+        <% end %>
+        <a class><%= link_to "詳細画面", post_path(@post.id) %></a>
+        <a class>|</a>
+        <a class><%= link_to "戻る", posts_path %></a>
+      </div> 
+    </div>
+  </div>
 </div>

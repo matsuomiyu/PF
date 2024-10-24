@@ -1,6 +1,6 @@
-<section class="user-confirm">
+<section class="user-confirm mt-5">
   <div class="container">
-    <h2 class="heading heading--2">退会確認</h2>
+    <h2 class="h2">退会確認</h2>
     <p class="user-confirm__text">
       一度退会すると、再度ご利用の際は再度新規登録が必要になります。
     </p>
@@ -8,13 +8,13 @@
       本当に退会しますか？
     </div>
 
-    <div class="user-confirm__flex">
-     <%= link_to 'マイページへ', user_path(current_user.id), class: 'user-confirm__my-page-button' %>
-     <%= link_to '退会する',
-      leave_user_path(current_user),
-      method: :delete,
-      class: 'user-confirm__leave-button',
-      data: { confirm: 'アカウントを削除します。よろしいですか？' }%>
+    <div class="d-flex justify-content-between mt-3">
+      <%= link_to 'マイページへ', mypage_path(id: current_user.id), class: 'btn btn-secondary' %>
+      <%= link_to '退会する',
+        leave_user_path(current_user),
+        method: :delete,
+        class: 'btn btn-danger',
+        data: { confirm: 'アカウントを削除します。よろしいですか？' }%>
     </div>
   </div>
 </section>

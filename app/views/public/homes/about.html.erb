@@ -1,30 +1,136 @@
-<section class="about">
+<div class="main-visual <%= 'main-visual--signed-in' if user_signed_in? %>">
   <div class="container">
-    <h2 class="heading heading--2">はじめての方へ</h2>
-    <p class="about__main-visual-text">
-      <%= image_tag 'torechare.png' %><br>
-      「トレチャレ -torechare-」は、ダイエットや筋トレをチャレンジしているが<br>
-      「いつもダイエット始めても継続できない」<br>
-      「ダイエットや筋トレ仲間が欲しい」<br>
-      そんなダイエッターの応援コミュニティです。
-    </p>
-  </div>
-
-  <section>
-    <div class="container">
-      <h3 class="heading heading--3">このサイトについて</h3>
-    </div>
-    <div class="about__main-visual">
-      <div class="about__main-visual-image-wrap">
-
+    <div class="row">
+      <div class="col-md-6">
+        <div class="main-visual__logo">
+          <%= image_tag "トレチャレ.png", class: "img-fluid", alt: "Main Visual Image" %>
+        </div>
       </div>
-      <p class="about__main-visual-text">
-        <br>
-        あなたの筋トレメニューやダイエット飯などを投稿して<br>
-        同じ目標を持つ仲間と繋がろう。
-      </p>
+      <div class="col-md-6">
+        <div class="main-visual__content" style="padding-top: 20px;">
+          <h3 class="main-visual__title mt-4">
+            はじめまして<br>
+            仲間とのコミュニケーションを通して<br>
+            モチベーションアップを目的とした<br>
+            コミュニティサイト<br>
+            トレチャレ--torechare--です。<br>
+            皆さん筋トレやダイエット継続<br>
+            そんなあなたを支えたいと思い<br>
+            作成しました
+          </h3>
+        </div>
+      </div>
+     </div>
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="main-visual__logo">
+          <%= image_tag "salada.png", class: "img-fluid", alt: "Main Visual Image" %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="main-visual__content" style="padding-top: 20px;">
+          <h1 class="main-visual__title mt-4">
+            健康的なダイエットに<br>
+            大切なこと
+          </h>
+          <ol>
+            <li>
+              <h3 style="font-size: 30px;">食生活の改善</h3>
+              <p style="font-size: 16px;">バランスの取れた食事を心がけ、栄養不足を防ぎましょう。</p>
+            </li>
+            <li>
+              <h3 style="font-size: 30px;">運動習慣の導入</h3>
+              <p style="font-size: 16px;">無理なく続けられる運動を見つけて、心身ともに健康に。</p>
+            </li>
+            <li>
+              <h3 style="font-size: 30px;">睡眠の質向上</h3>
+              <p style="font-size: 16px;">質の高い睡眠は、ダイエットの成功に不可欠です。</p>
+            </li>
+            </ol>
+        </div>
+      </div>
+     </div>
+  </div>
+  
+  <div class="container" style="background-color: #d4edda;">
+    <h2 class="text-black">レシピの共有で健康的な食事</h2>
+    <div class="card-deck">
+        <div class="card border-success">
+            <div class="card-body">
+                <h3 class="card-title">レシピの共有で健康的な<br>
+                                       食事栄養満点</h3>
+                <p class="card-text">プロの栄養士が監修した、栄養バランスの取れたレシピを共有します。</p>
+            </div>
+        </div>
+        <div class="card border-success">
+            <div class="card-body">
+                <h3 class="card-title">簡単で美味しい</h3>
+                <p class="card-text">忙しい方でも簡単に作れる、美味しくて健康的なレシピが満載です。</p>
+            </div>
+        </div>
+        <div class="card border-success">
+            <div class="card-body">
+                <h3 class="card-title">コミュニティで交流</h3>
+                <p class="card-text">レシピのアイデアを共有したり、料理の腕を磨いたりしましょう。</p>
+            </div>
+        </div>
     </div>
-
+  </div>
+  
+  <div class="container">
+    <h2 class="text-black">筋トレメニューで理想のボディを</h2>
+    <div class="card-deck">
+        <div class="card border-success">
+            <div class="card-body">
+                <h3 class="card-title">初心者向け</h3>
+                <p class="card-text">運動が初めての方でも安心して始められる、基礎的なメニューをご用意しています。</p>
+            </div>
+        </div>
+        <div class="card border-success">
+            <div class="card-body">
+                <h3 class="card-title">上級者向け</h3>
+                <p class="card-text">上級者向けさらにレベルアップを目指す方のために、本格的な筋トレメニューも提供しています。</p>
+            </div>
+        </div>
+        <div class="card border-success">
+            <div class="card-body">
+                <h3 class="card-title">専門家のアドバイス</h3>
+                <p class="card-text">経験豊富なトレーナーが、あなたの目標達成をサポートします。</p>
+            </div>
+        </div>
     </div>
-  </section>
-</section>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="main-visual__logo">
+          <%= image_tag "friend.png", class: "img-fluid", alt: "Main Visual Image" %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="main-visual__content" style="padding-top: 20px;">
+          <h1 class="main-visual__title mt-4">
+            ダイエットの仲間を見つけましょう<br>
+          </h>
+          <ol>
+            <li>
+              <h3 style="font-size: 30px;">チャット</h3>
+              <p style="font-size: 16px;">同じ目標を持つ仲間と、励まし合ったり、情報交換をしたりできます。</p>
+            </li>
+            <li>
+              <h3 style="font-size: 30px;">グループ</h3>
+              <p style="font-size: 16px;">共通の興味を持つ仲間と、グループを作って交流できます。</p>
+            </li>
+            <li>
+              <h3 style="font-size: 30px;">イベント</h3>
+              <p style="font-size: 16px;">オンラインイベントやオフラインイベントを通して、仲間と繋がることができます。</p>
+            </li>
+            </ol>
+        </div>
+      </div>
+     </div>
+  </div>
+</div>
